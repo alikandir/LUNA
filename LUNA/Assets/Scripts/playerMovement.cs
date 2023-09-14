@@ -2,29 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.UI;
 
 public class playerMovement : MonoBehaviour
 {
-    Vector2 moveInput;
+    public Vector2 moveInput;
     Rigidbody2D rb;
     Animator animator;
     CapsuleCollider2D bodyCollider;
     BoxCollider2D feetCollider;
+    AudioSource audioSource;
     float gravityAtStart;
     float animatorSpeedDefault;
+    float deathAnimationLength=3f;
     
 
-    bool isAlive=true;
- 
-    
+    public bool isAlive=true;
 
+    [SerializeField] Image reloadImage;
+    [SerializeField] float gunCoolDown = 2f;
+    float gunCoolDownCounter;
     [SerializeField] float runSpeed = 5;
     [SerializeField] float jumpSpeed=5;
     [SerializeField] float climbSpeed = 5;
     [SerializeField] Vector2 deathKick = new Vector2(10f, 10f);
     [SerializeField] GameObject arrow;
     [SerializeField] Transform bow;
+    [SerializeField] AudioClip[] gunShotSounds;
+    [SerializeField] AudioClip jumpSound;
+    [SerializeField] AudioClip deathSound;
 
 
     LayerMask ground;
@@ -40,7 +46,9 @@ public class playerMovement : MonoBehaviour
         feetCollider = GetComponent<BoxCollider2D>();
         gravityAtStart = rb.gravityScale;
         animatorSpeedDefault = animator.speed;
-        
+        gunCoolDownCounter = gunCoolDown;
+        audioSource = GetComponent<AudioSource>();
+              
   
     }
 
@@ -51,7 +59,9 @@ public class playerMovement : MonoBehaviour
         Run();
         FlipSprite(); 
         ClimbLadder();
-        Die();
+        gunCoolDownCounter += Time.deltaTime;
+        reloadImage.fillAmount = gunCoolDownCounter / gunCoolDown;
+   
     }
 
     void OnMove(InputValue value)
@@ -66,15 +76,35 @@ public class playerMovement : MonoBehaviour
         if (value.isPressed && isGrounded())
         {
             rb.velocity += new Vector2(0f, jumpSpeed);
+            audioSource.clip = jumpSound;
+            audioSource.pitch = 0.8f;
+            audioSource.Play();
         }
         
     }
     void OnFire(InputValue value)
     {
         if (!isAlive) { return; }
-        Instantiate(arrow,bow.position,transform.rotation);
+        StartCoroutine(Shoot());
     }
 
+    IEnumerator Shoot()
+    {
+        if (gunCoolDownCounter >= gunCoolDown)
+        {
+            animator.SetBool("isShooting",true);
+            Instantiate(arrow, bow.position, transform.rotation);
+            gunCoolDownCounter = 0f;
+            int randomIndex = Random.Range(0, gunShotSounds.Length);
+            audioSource.clip = gunShotSounds[randomIndex];
+            audioSource.pitch = 1.25f;
+            audioSource.Play();
+            yield return new WaitForSeconds(0.4f);
+            animator.SetBool("isShooting", false);
+
+        }
+        
+    }
     void Run()
     {
         Vector2 playerVelocity = new Vector2(moveInput.x*runSpeed, rb.velocity.y);
@@ -144,20 +174,26 @@ public class playerMovement : MonoBehaviour
         return feetCollider.IsTouchingLayers(ground);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.rigidbody.tag == "enemy")
+        if (collision.gameObject.CompareTag("Hazard"))
         {
             Die();
         }
     }
-    void Die()
+    public void Die()
     {
-        if (bodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemies","Hazards")))
-        {
-            isAlive = false;
-            animator.SetTrigger("Dying");
-            rb.velocity = deathKick;
-        }
+       
+        isAlive = false;
+        audioSource.clip = deathSound;
+        audioSource.volume = 1;
+        audioSource.pitch = 1;
+        audioSource.Play();
+        animator.SetTrigger("Dying");
+        rb.velocity = deathKick;
+        StartCoroutine(FindObjectOfType<gameSession>().ProcessPlayerDeath(deathAnimationLength));        
+        
     }
+
 }
