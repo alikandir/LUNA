@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: MainMenu_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 07769816c1f9b1c41b0688d70b4d5b58, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 26999762944
+    m_Localized: Back to Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 333011988480
+    m_Localized: Start Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 499936899072
+    m_Localized: Credits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3546436055040
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3613763022848
+    m_Localized: "T\xFCrk\xE7e"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4920968196096
+    m_Localized: How to Play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5216255586304
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5848500776960
+    m_Localized: LUNAR MINER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8715278200832
+    m_Localized: 'Move the Moonman with WASD or Arrow Keys.
+
+      Shoot with Mouse
+      Left Click.
+
+      Activate the Drill with W or Up arrow.
+
+      Survive until
+      the Drill is done.
+
+      Don''t run out of Oxygen!'
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

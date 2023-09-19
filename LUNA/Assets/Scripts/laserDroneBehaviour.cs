@@ -25,7 +25,7 @@ public class laserDroneBehaviour : MonoBehaviour
     {
         shootingTimeCounter-= Time.deltaTime;
         Shoot();
-        Debug.Log(shootingTimeCounter);
+        
         
     }
 

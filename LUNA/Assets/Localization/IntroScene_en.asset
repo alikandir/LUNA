@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: IntroScene_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 421affd28ae6f8042905ed8993c4725f, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 12655243264
+    m_Localized: "You are a Space Miner that was sent to space from your home planet
+      with a mission. Find and excavate valuable resources and bring them back to
+      your home.\nYou found a place full of resources but Space Pirates have already
+      filled the place with traps and drones. \nCan you survive them all?\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1097348395008
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

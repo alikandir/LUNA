@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-Shared
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-Assets-Shared
+  m_Data:
+    m_SerializedData: []
+  m_GUID: ac8093d018ce39a4f92fc95b9b2a291d
+  m_SerializeEntries:
+  - m_GUID: 07769816c1f9b1c41b0688d70b4d5b58
+    m_Address: Assets/Localization/MainMenu Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 421affd28ae6f8042905ed8993c4725f
+    m_Address: Assets/Localization/IntroScene Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c065bc78c4d7534c8410fbcf8f14d8e
+    m_Address: Assets/Localization/Gameplay Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e1dca50e9a83f144bfd7b9a6cbcf0b7
+    m_Address: Assets/Localization/FinalScreen Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b1559b125c726654ca11655b050942d5
+    m_Address: Assets/Localization/BossIntro Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 1f0bf076e9a28fd40aaaa2f0b9f4dbf5, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 743b010205e873e43a6c987ea0a442f9, type: 2}
+    - {fileID: 11400000, guid: 9be364998f0d2274eb9addbfef17a7b1, type: 2}

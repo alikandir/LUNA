@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -375287739
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -1716105696, guid: fb5ac9e82855ec145adac347edd8cd80, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -122,9 +122,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  initialTimer: 60
+  initialTimer: 5
   timerText: {fileID: 0}
   slider: {fileID: 0}
+  levelExit: {fileID: 0}
+  pointerArrow: {fileID: 0}
   drillSwitch: 0
 --- !u!61 &91883542019838632
 BoxCollider2D:
@@ -183,7 +185,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 24388dc52cb74264f9155f4d298a0243, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.505
+  m_Volume: 0.407
   m_Pitch: 0.8
   Loop: 1
   Mute: 0

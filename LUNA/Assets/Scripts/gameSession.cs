@@ -8,10 +8,13 @@ using UnityEngine.SceneManagement;
 
 public class gameSession : MonoBehaviour
 {
-    [SerializeField] int playerLives = 3;
-    int score = 0;
-    [SerializeField] TextMeshProUGUI livesText;
-    [SerializeField] TextMeshProUGUI scoreText;
+
+    public int playerDeaths;
+    [SerializeField] TextMeshProUGUI deathsString;
+    [SerializeField] TextMeshProUGUI deathsText;
+    [SerializeField] TextMeshProUGUI totalDeathsLastScreen;
+    
+    
     
     private void Awake()
     {
@@ -26,33 +29,49 @@ public class gameSession : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
-
     private void Start()
     {
-        livesText.text = "Lives: " + playerLives.ToString();
-        scoreText.text = "Score: " + score.ToString();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded; 
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.buildIndex == SceneManager.sceneCountInBuildSettings - 1)
+        {
+            
+            deathsText.gameObject.SetActive(false);
+            totalDeathsLastScreen.gameObject.SetActive(true);
+            deathsString.gameObject.SetActive(false);
+            totalDeathsLastScreen.text = playerDeaths.ToString();
+        }
+        else
+        {
+            deathsText.gameObject.SetActive(true);
+            totalDeathsLastScreen.gameObject.SetActive(false);
+            deathsString.gameObject.SetActive(true);
+            deathsText.text = playerDeaths.ToString();
+        }
     }
 
     public IEnumerator ProcessPlayerDeath(float deathAnimationLength)
     {
-        yield return new WaitForSeconds(deathAnimationLength);
+       
+            yield return new WaitForSeconds(deathAnimationLength);
         
-        if (playerLives > 1)
-        {
             TakeLife();
-        }
-        else
-        { ResetGameSession();}
-
     }
 
     void TakeLife()
     {
-        playerLives--;
+        playerDeaths++;
         FindObjectOfType<DrillBehaviour>().TimerReset();
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        livesText.text = "Lives: "+playerLives.ToString();
+        deathsText.text = playerDeaths.ToString();
 
     }
 
@@ -63,9 +82,5 @@ public class gameSession : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void IncreaseScore(int pointsAdded)
-    {
-        score+=pointsAdded;
-        scoreText.text = "Score: " + score.ToString();
-    }
+    
 }

@@ -48,9 +48,6 @@ TagManager:
   - name: Background
     uniqueID: 3162733585
     locked: 0
-  - name: Water
-    uniqueID: 3672370341
-    locked: 0
   - name: Ladder
     uniqueID: 4191571941
     locked: 0

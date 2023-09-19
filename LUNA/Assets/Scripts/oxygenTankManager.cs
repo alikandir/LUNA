@@ -12,25 +12,32 @@ public class oxygenTankManager : MonoBehaviour
     [SerializeField] float oxygenTankIncreaseAmount;
     bool isOxygen = true;
     bool hasSuffocated = false;
+    DrillBehaviour drill;
 
     void Start()
     {
         oxygenBar.maxValue = oxygenMaxAmount;
         oxygenBar.value = oxygenMaxAmount;
         oxygenBar.minValue = 0f;
+        drill = FindObjectOfType<DrillBehaviour>();
 
     }
 
 
     void Update()
     {
-        OxygenDecrease();
+        if (drill.drillSwitch == true)
+        {
+            OxygenDecrease();
+        }
+        
         Suffocate();
 
     }
     
 
     public void OxygenTankCollect()
+        
     {
         oxygenBar.value += oxygenTankIncreaseAmount;
     }

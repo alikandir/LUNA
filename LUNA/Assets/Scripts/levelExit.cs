@@ -6,17 +6,23 @@ using UnityEngine.SceneManagement;
 public class levelExit : MonoBehaviour
 {
     [SerializeField] float loadDelay;
+    playerMovement player;
+    private void Start()
+    {
+        player = FindObjectOfType<playerMovement>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag=="Player")
+        if (collision.tag == "Player")
         {
+            
+            player.DisableControl();
             StartCoroutine(LoadNextLevel());
-        
         }
-
         IEnumerator LoadNextLevel()
         {
             yield return new WaitForSecondsRealtime(loadDelay);
+            player.EnableControl();
             int levelIndex = SceneManager.GetActiveScene().buildIndex;
             int nextSceneIndex = levelIndex + 1;
 

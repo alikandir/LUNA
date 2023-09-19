@@ -15,6 +15,8 @@ public class DrillBehaviour : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] Slider slider;
+    [SerializeField] GameObject levelExit;
+    [SerializeField] GameObject pointerArrow;
 
     AudioSource audioSource;
 
@@ -26,9 +28,13 @@ public class DrillBehaviour : MonoBehaviour
         collision = GetComponent<BoxCollider2D>();
         playerScript = player.GetComponent<playerMovement>();
         drillTimer=initialTimer;
-        slider.maxValue = initialTimer;
-        slider.value = initialTimer;
-        slider.minValue = 0f;
+        if (slider != null)
+        {
+            slider.maxValue = initialTimer;
+            slider.value = initialTimer;
+            slider.minValue = 0f;
+        }
+        
         audioSource = GetComponent<AudioSource>();
          
     }
@@ -53,19 +59,23 @@ public class DrillBehaviour : MonoBehaviour
     }
     void UpdateTimer()
     {
-        if (drillSwitch&&slider.value>0f)
+        if (slider != null)
         {
+            if (drillSwitch && slider.value > 0f)
+            {
 
-            drillTimer -= Time.deltaTime;
-            int timerValue= Mathf.FloorToInt(drillTimer);
-            
-            slider.value = drillTimer;
+                drillTimer -= Time.deltaTime;
+                int timerValue = Mathf.FloorToInt(drillTimer);
+
+                slider.value = drillTimer;
+            }
+            else if (slider.value == 0f)
+            {
+                audioSource.Stop();
+                LevelWin();
+            }
         }
-        else if (slider.value == 0f)
-        {
-            audioSource.Stop();
-            LevelWin();
-        }
+        
     }
     public void TimerReset()
     {
@@ -77,8 +87,9 @@ public class DrillBehaviour : MonoBehaviour
        
         drillSwitch = false;
         animator.SetTrigger("drillFinished");
-        timerText.text = "Level won!";
         timerText.gameObject.SetActive(true);
+        pointerArrow.gameObject.SetActive(true);
+        levelExit.gameObject.SetActive(true);
         
        
     }

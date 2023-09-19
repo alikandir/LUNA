@@ -15,8 +15,9 @@ public class playerMovement : MonoBehaviour
     float gravityAtStart;
     float animatorSpeedDefault;
     float deathAnimationLength=3f;
-    
 
+
+    public bool isControlEnabled = true;
     public bool isAlive=true;
 
     [SerializeField] Image reloadImage;
@@ -31,6 +32,7 @@ public class playerMovement : MonoBehaviour
     [SerializeField] AudioClip[] gunShotSounds;
     [SerializeField] AudioClip jumpSound;
     [SerializeField] AudioClip deathSound;
+    
 
 
     LayerMask ground;
@@ -48,6 +50,7 @@ public class playerMovement : MonoBehaviour
         animatorSpeedDefault = animator.speed;
         gunCoolDownCounter = gunCoolDown;
         audioSource = GetComponent<AudioSource>();
+        
               
   
     }
@@ -56,6 +59,7 @@ public class playerMovement : MonoBehaviour
     void Update()
     {
         if (!isAlive) { return; }
+        if (!isControlEnabled) { return; }
         Run();
         FlipSprite(); 
         ClimbLadder();
@@ -67,13 +71,15 @@ public class playerMovement : MonoBehaviour
     void OnMove(InputValue value)
     {
         if (!isAlive) { return; }
+        if (!isControlEnabled) { return; }
         moveInput = value.Get<Vector2>();
     }
 
     void OnJump(InputValue value)
     {
         if (!isAlive) { return; }
-        if (value.isPressed && isGrounded())
+        if (!isControlEnabled) { return; }
+        if ((value.isPressed && isGrounded()))
         {
             rb.velocity += new Vector2(0f, jumpSpeed);
             audioSource.clip = jumpSound;
@@ -85,6 +91,7 @@ public class playerMovement : MonoBehaviour
     void OnFire(InputValue value)
     {
         if (!isAlive) { return; }
+        if (!isControlEnabled) { return; }
         StartCoroutine(Shoot());
     }
 
@@ -101,9 +108,20 @@ public class playerMovement : MonoBehaviour
             audioSource.Play();
             yield return new WaitForSeconds(0.4f);
             animator.SetBool("isShooting", false);
+            
 
         }
         
+    }
+    public void DisableControl()
+    {
+        isControlEnabled = false;
+        rb.velocity = Vector2.zero;
+    }
+   
+    public void EnableControl()
+    {
+        isControlEnabled = true;
     }
     void Run()
     {
@@ -184,7 +202,7 @@ public class playerMovement : MonoBehaviour
     }
     public void Die()
     {
-       
+        if (!isAlive) { return; }
         isAlive = false;
         audioSource.clip = deathSound;
         audioSource.volume = 1;
