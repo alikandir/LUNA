@@ -32,6 +32,11 @@ public class mainMenuScript : MonoBehaviour
         menuCanvas.gameObject.SetActive(false);
         creditsCanvas.gameObject.SetActive(true);
     }
+    public void QuitGame()
+    {
+        
+        Application.Quit();
+    }
     public void Languages()
     {
         menuCanvas.gameObject.SetActive(false);

@@ -51,6 +51,10 @@ MonoBehaviour:
     m_Key: How to Text
     m_Metadata:
       m_Items: []
+  - m_Id: 484292917440512
+    m_Key: Quit
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

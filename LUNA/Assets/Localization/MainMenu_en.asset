@@ -64,6 +64,10 @@ MonoBehaviour:
       Don''t run out of Oxygen!'
     m_Metadata:
       m_Items: []
+  - m_Id: 484292917440512
+    m_Localized: Quit
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
