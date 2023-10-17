@@ -23,6 +23,14 @@ MonoBehaviour:
     m_Key: Start
     m_Metadata:
       m_Items: []
+  - m_Id: 2134653658968064
+    m_Key: TutorialText1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2135099232464896
+    m_Key: TutorialText2
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -29,6 +29,16 @@ MonoBehaviour:
     m_Localized: "Ba\u015Fla"
     m_Metadata:
       m_Items: []
+  - m_Id: 2134653658968064
+    m_Localized: "Sondaj \xE7al\u0131\u015Fmaya ba\u015Flad\u0131\u011F\u0131nda
+      sol \xFCstte g\xF6z\xFCken oksijen seviyen d\xFC\u015Fmeye ba\u015Flayacak.\nKap\u0131lardan
+      dronelar gelmeye ba\u015Flayacak!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2135099232464896
+    m_Localized: "Oksijen t\xFCplerini topla ve sondaj bitene kadar hayatta kal!"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

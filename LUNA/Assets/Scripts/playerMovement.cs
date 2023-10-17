@@ -50,9 +50,9 @@ public class playerMovement : MonoBehaviour
         animatorSpeedDefault = animator.speed;
         gunCoolDownCounter = gunCoolDown;
         audioSource = GetComponent<AudioSource>();
-        
-              
-  
+
+
+
     }
 
     

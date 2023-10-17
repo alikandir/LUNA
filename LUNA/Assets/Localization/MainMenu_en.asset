@@ -51,15 +51,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 8715278200832
-    m_Localized: 'Move the Moonman with WASD or Arrow Keys.
+    m_Localized: 'Move the Moonman with WASD or Arrow Keys. Space or X to jump.
 
-      Shoot with Mouse
-      Left Click.
+      Shoot
+      with Mouse Left Click or Z.
 
       Activate the Drill with W or Up arrow.
 
-      Survive until
-      the Drill is done.
+      Survive
+      until the Drill is done.
 
       Don''t run out of Oxygen!'
     m_Metadata:

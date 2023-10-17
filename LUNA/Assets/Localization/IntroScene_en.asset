@@ -29,6 +29,17 @@ MonoBehaviour:
     m_Localized: Start
     m_Metadata:
       m_Items: []
+  - m_Id: 2134653658968064
+    m_Localized: 'When the drill starts, your oxygen meter at the top left starts
+      to diminish.
+
+      Drones will start to spawn from the gates!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2135099232464896
+    m_Localized: Collect oxygen tanks to survive till the drill is done.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -51,10 +51,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 8715278200832
-    m_Localized: "Uzayl\u0131y\u0131 WASD veya Ok Tu\u015Flar\u0131 ile hareket ettir.\nFare
-      Sol T\u0131k\u0131 ile ate\u015F et.\nSondaj\u0131 \xE7al\u0131\u015Ft\u0131rmak
-      i\xE7in W ya da Yukar\u0131 Ok tu\u015Funu kullan.\nOksijenin bitmemesine dikkat
-      et!\n"
+    m_Localized: "Uzayl\u0131y\u0131 WASD veya Ok Tu\u015Flar\u0131 ile hareket ettir.
+      X ve Bo\u015Fluk ile z\u0131pla.\nFare Sol T\u0131k\u0131 ile ya da Z ile ate\u015F
+      et.\nSondaj\u0131 \xE7al\u0131\u015Ft\u0131rmak i\xE7in W ya da Yukar\u0131
+      Ok tu\u015Funu kullan.\nOksijenin bitmemesine dikkat et!\n"
     m_Metadata:
       m_Items: []
   - m_Id: 484292917440512
